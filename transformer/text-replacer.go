@@ -25,7 +25,7 @@ func (t *textReplacer) GetFilePatterns() []types.FilePattern {
 func (t *textReplacer) Transform(input types.File) types.File {
 	return types.File{
 		Contents:  strings.ReplaceAll(input.Contents, t.pattern, t.replacement),
-		Path:      input.Path,
+		Path:      strings.ReplaceAll(input.Path, t.pattern, t.replacement),
 		Discarded: input.Discarded,
 	}
 }
